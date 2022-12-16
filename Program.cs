@@ -15,7 +15,9 @@ class Program
         const int IDADE_MINIMA1 = 25;
         const var IDADE_MINIMA2 = 25; // Errado, pois não se usa constante com var
         const var IDADE_MINIMA3; // Não se usa constantes com var
-        
+
+        // Ctrl+K+C comentar / Crlt+K+U descomentar
+
         var texto = "Testando";
         Console.WriteLine(texto);
     }
