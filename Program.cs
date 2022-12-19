@@ -175,6 +175,28 @@ class Program
         int div2 = Convert.ToInt32(strNum1) / Convert.ToInt32(strNum2);
         Console.WriteLine("Divisão com números usando classe Convert: " + div2);
 
+        // Converter número para string
+        int value = 100;
+        float fValue = 25.8f;
+        Console.WriteLine("Valor numérico antes da conversão para string: " + fValue.GetType() + " " + fValue);
+        string valString = fValue.ToString();
+        Console.WriteLine("Valor numérico convertido para string: " + valString.GetType() + " " + fValue);
+        value = Convert.ToInt32(fValue);
+        Console.WriteLine("Valor numérico de float para inteiro: " + value.GetType() + " " + value);
+        Console.WriteLine("Valor negativo para booleano: " + Convert.ToBoolean(-255));
+
+        // Operadores aritméticos
+        int numero = 2;
+        int soma = numero + numero;
+        int subtracao = numero - numero;
+        int multiplicacao = numero * numero;
+        int divisao = numero / numero;
+
+        Console.WriteLine("Soma: " + soma);
+        Console.WriteLine("Subtração: " + subtracao);
+        Console.WriteLine("Multiplicação: " + multiplicacao);
+        Console.WriteLine("Divisão: " + divisao);
+
     }
 }
 
