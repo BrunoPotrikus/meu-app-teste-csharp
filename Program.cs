@@ -137,6 +137,44 @@ class Program
         int? num = null; // Colocar sempre ? na frente do tipo para atribuir uma variável nula.
         Console.WriteLine("Variável nula: " + num);
 
+        // Valores padrão de de cada tipo de variável
+        /*
+         
+        int => 0
+        float => 0
+        bool => false
+        char => '\0'
+        string => ""
+         
+         */
+
+        // Conversão de dados
+
+        // Conversão implícita
+        float valFloat = 25.8f;
+        Console.WriteLine("Valor float antes da conversão: " + valFloat);    
+        int valInt = 25;
+        valFloat = valInt;
+        Console.WriteLine("Valor float após a conversão: " + valFloat);
+
+        // Conversão explícita
+        int inteiro = 100;
+        Console.WriteLine("Inteiro normal: " + inteiro);
+        uint uInteiro = (uint)inteiro; // Convertendo de positivo para negativo
+        Console.WriteLine("Inteiro não negativo: " + uInteiro);
+
+        // Parse: converter string para valor numérico
+        string strNum1 = "100";
+        string strNum2 = "50";
+
+        int div = int.Parse(strNum1) / int.Parse(strNum2);
+
+        Console.WriteLine("Resultado divisão: " + div);
+
+        // Convert: Converte qualquer tipo de dado em outro tipo
+        int div2 = Convert.ToInt32(strNum1) / Convert.ToInt32(strNum2);
+        Console.WriteLine("Divisão com números usando classe Convert: " + div2);
+
     }
 }
 
