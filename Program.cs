@@ -137,6 +137,228 @@ class Program
         int? num = null; // Colocar sempre ? na frente do tipo para atribuir uma variável nula.
         Console.WriteLine("Variável nula: " + num);
 
+        // Valores padrão de de cada tipo de variável
+        /*
+         
+        int => 0
+        float => 0
+        bool => false
+        char => '\0'
+        string => ""
+         
+         */
+
+        // Conversão de dados
+
+        // Conversão implícita
+        float valFloat = 25.8f;
+        Console.WriteLine("Valor float antes da conversão: " + valFloat);    
+        int valInt = 25;
+        valFloat = valInt;
+        Console.WriteLine("Valor float após a conversão: " + valFloat);
+
+        // Conversão explícita
+        int inteiro = 100;
+        Console.WriteLine("Inteiro normal: " + inteiro);
+        uint uInteiro = (uint)inteiro; // Convertendo de positivo para negativo
+        Console.WriteLine("Inteiro não negativo: " + uInteiro);
+
+        // Parse: converter string para valor numérico
+        string strNum1 = "100";
+        string strNum2 = "50";
+
+        int div = int.Parse(strNum1) / int.Parse(strNum2);
+
+        Console.WriteLine("Resultado divisão: " + div);
+
+        // Convert: Converte qualquer tipo de dado em outro tipo
+        int div2 = Convert.ToInt32(strNum1) / Convert.ToInt32(strNum2);
+        Console.WriteLine("Divisão com números usando classe Convert: " + div2);
+
+        // Converter número para string
+        int value = 100;
+        float fValue = 25.8f;
+        Console.WriteLine("Valor numérico antes da conversão para string: " + fValue.GetType() + " " + fValue);
+        string valString = fValue.ToString();
+        Console.WriteLine("Valor numérico convertido para string: " + valString.GetType() + " " + fValue);
+        value = Convert.ToInt32(fValue);
+        Console.WriteLine("Valor numérico de float para inteiro: " + value.GetType() + " " + value);
+        Console.WriteLine("Valor negativo para booleano: " + Convert.ToBoolean(-255));
+
+        // Operadores aritméticos
+        int numero = 2;
+        int soma = numero + numero;
+        int subtracao = numero - numero;
+        int multiplicacao = numero * numero;
+        int divisao = numero / numero;
+
+        Console.WriteLine("Soma: " + soma);
+        Console.WriteLine("Subtração: " + subtracao);
+        Console.WriteLine("Multiplicação: " + multiplicacao);
+        Console.WriteLine("Divisão: " + divisao);
+
+        // Switch 
+        Console.WriteLine();
+        Console.WriteLine("switch/case");
+        switch (numero)
+        {
+            case 1:
+                Console.WriteLine("Primeiro");
+                break;
+
+            case 2:
+                Console.WriteLine("Segundo");
+                break;
+
+            case 3:
+                Console.WriteLine("Terceiro");
+                break;
+
+            case 4:
+                Console.WriteLine("Quarto");
+                break;
+
+            default:
+                Console.WriteLine("Desclassificado");
+                break;
+        }
+
+        // While
+        Console.WriteLine();
+        Console.WriteLine("While");
+        int contador1 = 0;
+        while (contador1 < array.Length)
+        {
+            Console.WriteLine(array[contador1]);
+            contador1++;
+        }
+
+        // do/while
+        Console.WriteLine();
+        Console.WriteLine("do/while");
+        int contador2 = 0;
+        do
+        {
+            Console.WriteLine(contador2);
+            contador2++;
+        } while (contador2 < 5);
+
+        // Função
+        Console.WriteLine();
+        Console.WriteLine("Funcões");
+        char somar = '+';
+        char subtrair = '-';
+        char multiplicar = '*';
+        char dividir = '/';
+
+        double num1 = 25.8;
+        double num2 = 30.4;
+
+        Console.WriteLine(Calculo(num1, num2, somar));
+        Console.WriteLine(Calculo(num1, num2, subtrair));
+        Console.WriteLine(Calculo(num1, num2, multiplicar));
+        Console.WriteLine(Calculo(num1, num2, dividir));
+
+        string message = Metodo("Programa finalizado");
+        Console.WriteLine(message);
+
+        // Value types e Reference types
+        Console.WriteLine();
+        Console.WriteLine("Value types e Reference types");
+        int x = 25;
+        int y = x;
+        Console.WriteLine(x);
+        Console.WriteLine(y);
+
+        x = 32;
+        Console.WriteLine(x);
+        Console.WriteLine(y);
+
+        var arr1 = new string[2];
+        arr1[0] = "Posição 1";
+        arr1[1] = "Posição 2";
+
+        var arr2 = arr1;
+
+        Console.WriteLine(arr1[0]);
+        Console.WriteLine(arr2[0]);
+
+        arr1[0] = "Valor alterado";
+        Console.WriteLine(arr1[0]);
+        Console.WriteLine(arr2[0]);
+
+        // Structs e Enumeradores
+        Console.WriteLine();
+        Console.WriteLine("Structs");
+        int id = 1;
+        string sobrenome = "Potrikus";
+        int idade = 25;
+        var pessoa = new Pessoa(id, nome, sobrenome, idade, EEstadoCivil.Solteiro);
+        Console.WriteLine(pessoa.MostraPessoa());
+
     }
+
+    static string Metodo (string message)
+    {
+        return message;
+    }
+
+    static string Calculo (double num1, double num2, char operador)
+    {
+        switch (operador)
+        {
+            case '+':
+                return (num1 + num2).ToString();
+
+            case '-':
+                return (num1 - num2).ToString();
+
+            case '*':
+                return (num1 * num2).ToString();
+
+            case '/':
+                return (num1 / num2).ToString();
+
+            default:
+                return "Operação inválida!";
+
+        }
+    }
+}
+
+struct Pessoa
+{
+    public int Id;
+    public string Nome;
+    public string Sobrenome;
+    public int Idade;
+    public EEstadoCivil EstadoCivil;
+
+    // Método construtor
+    public Pessoa(int id, string nome, string sobrenome, int idade, EEstadoCivil estadoCivil)
+    {
+        Id = id;
+        Nome = nome;
+        Sobrenome = sobrenome;
+        Idade = idade;
+        EstadoCivil = estadoCivil;
+    }
+
+    public string MostraPessoa()
+    {
+        return "Id: " + Id + "\n"
+                + "Nome: " + Nome + "\n"
+                + "Sobrenome: " + Sobrenome + "\n"
+                + "Idade: " + Idade + "\n"
+                + "Estado Civil: " + EstadoCivil;
+    }
+}
+
+enum EEstadoCivil
+{
+    Solteiro = 1,
+    Casado = 2,
+    Divorciado = 3,
+    Viuvo = 4
 }
 
