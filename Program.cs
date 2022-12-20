@@ -287,13 +287,13 @@ class Program
         Console.WriteLine(arr1[0]);
         Console.WriteLine(arr2[0]);
 
-        // Structs
+        // Structs e Enumeradores
         Console.WriteLine();
         Console.WriteLine("Structs");
         int id = 1;
         string sobrenome = "Potrikus";
         int idade = 25;
-        var pessoa = new Pessoa(id, nome, sobrenome, idade);
+        var pessoa = new Pessoa(id, nome, sobrenome, idade, EEstadoCivil.Solteiro);
         Console.WriteLine(pessoa.MostraPessoa());
 
     }
@@ -332,14 +332,16 @@ struct Pessoa
     public string Nome;
     public string Sobrenome;
     public int Idade;
+    public EEstadoCivil EstadoCivil;
 
     // Método construtor
-    public Pessoa(int id, string nome, string sobrenome, int idade)
+    public Pessoa(int id, string nome, string sobrenome, int idade, EEstadoCivil estadoCivil)
     {
         Id = id;
         Nome = nome;
         Sobrenome = sobrenome;
         Idade = idade;
+        EstadoCivil = estadoCivil;
     }
 
     public string MostraPessoa()
@@ -347,7 +349,16 @@ struct Pessoa
         return "Id: " + Id + "\n"
                 + "Nome: " + Nome + "\n"
                 + "Sobrenome: " + Sobrenome + "\n"
-                + "Idade: " + Idade;
+                + "Idade: " + Idade + "\n"
+                + "Estado Civil: " + EstadoCivil;
     }
+}
+
+enum EEstadoCivil
+{
+    Solteiro = 1,
+    Casado = 2,
+    Divorciado = 3,
+    Viuvo = 4
 }
 
