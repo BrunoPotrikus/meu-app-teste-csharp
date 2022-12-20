@@ -324,30 +324,30 @@ class Program
 
         }
     }
+}
 
-    struct Pessoa
+struct Pessoa
+{
+    public int Id;
+    public string Nome;
+    public string Sobrenome;
+    public int Idade;
+
+    // Método construtor
+    public Pessoa(int id, string nome, string sobrenome, int idade)
     {
-        public int Id;
-        public string Nome;
-        public string Sobrenome;
-        public int Idade;
+        Id = id;
+        Nome = nome;
+        Sobrenome = sobrenome;
+        Idade = idade;
+    }
 
-        // Método construtor
-        public Pessoa (int id, string nome, string sobrenome, int idade)
-        {
-            Id = id;
-            Nome = nome;
-            Sobrenome = sobrenome;
-            Idade = idade;
-        }
-
-        public string MostraPessoa()
-        {
-            return "Id: " + Id + "\n"
-                    + "Nome: " + Nome + "\n"
-                    + "Sobrenome: " + Sobrenome + "\n"
-                    + "Idade: " + Idade;
-        }
+    public string MostraPessoa()
+    {
+        return "Id: " + Id + "\n"
+                + "Nome: " + Nome + "\n"
+                + "Sobrenome: " + Sobrenome + "\n"
+                + "Idade: " + Idade;
     }
 }
 
