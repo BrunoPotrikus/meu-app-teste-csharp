@@ -197,6 +197,30 @@ class Program
         Console.WriteLine("Multiplicação: " + multiplicacao);
         Console.WriteLine("Divisão: " + divisao);
 
+        // Switch 
+        switch (numero)
+        {
+            case 1:
+                Console.WriteLine("Primeiro");
+                break;
+
+            case 2:
+                Console.WriteLine("Segundo");
+                break;
+
+            case 3:
+                Console.WriteLine("Terceiro");
+                break;
+
+            case 4:
+                Console.WriteLine("Quarto");
+                break;
+
+            default:
+                Console.WriteLine("Desclassificado");
+                break;
+        }
+
     }
 }
 
