@@ -198,6 +198,8 @@ class Program
         Console.WriteLine("Divisão: " + divisao);
 
         // Switch 
+        Console.WriteLine();
+        Console.WriteLine("switch/case");
         switch (numero)
         {
             case 1:
@@ -221,6 +223,131 @@ class Program
                 break;
         }
 
+        // While
+        Console.WriteLine();
+        Console.WriteLine("While");
+        int contador1 = 0;
+        while (contador1 < array.Length)
+        {
+            Console.WriteLine(array[contador1]);
+            contador1++;
+        }
+
+        // do/while
+        Console.WriteLine();
+        Console.WriteLine("do/while");
+        int contador2 = 0;
+        do
+        {
+            Console.WriteLine(contador2);
+            contador2++;
+        } while (contador2 < 5);
+
+        // Função
+        Console.WriteLine();
+        Console.WriteLine("Funcões");
+        char somar = '+';
+        char subtrair = '-';
+        char multiplicar = '*';
+        char dividir = '/';
+
+        double num1 = 25.8;
+        double num2 = 30.4;
+
+        Console.WriteLine(Calculo(num1, num2, somar));
+        Console.WriteLine(Calculo(num1, num2, subtrair));
+        Console.WriteLine(Calculo(num1, num2, multiplicar));
+        Console.WriteLine(Calculo(num1, num2, dividir));
+
+        string message = Metodo("Programa finalizado");
+        Console.WriteLine(message);
+
+        // Value types e Reference types
+        Console.WriteLine();
+        Console.WriteLine("Value types e Reference types");
+        int x = 25;
+        int y = x;
+        Console.WriteLine(x);
+        Console.WriteLine(y);
+
+        x = 32;
+        Console.WriteLine(x);
+        Console.WriteLine(y);
+
+        var arr1 = new string[2];
+        arr1[0] = "Posição 1";
+        arr1[1] = "Posição 2";
+
+        var arr2 = arr1;
+
+        Console.WriteLine(arr1[0]);
+        Console.WriteLine(arr2[0]);
+
+        arr1[0] = "Valor alterado";
+        Console.WriteLine(arr1[0]);
+        Console.WriteLine(arr2[0]);
+
+        // Structs
+        Console.WriteLine();
+        Console.WriteLine("Structs");
+        int id = 1;
+        string sobrenome = "Potrikus";
+        int idade = 25;
+        var pessoa = new Pessoa(id, nome, sobrenome, idade);
+        Console.WriteLine(pessoa.MostraPessoa());
+
+    }
+
+    static string Metodo (string message)
+    {
+        return message;
+    }
+
+    static string Calculo (double num1, double num2, char operador)
+    {
+        switch (operador)
+        {
+            case '+':
+                return (num1 + num2).ToString();
+
+            case '-':
+                return (num1 - num2).ToString();
+
+            case '*':
+                return (num1 * num2).ToString();
+
+            case '/':
+                return (num1 / num2).ToString();
+
+            default:
+                return "Operação inválida!";
+
+        }
+    }
+
+    struct Pessoa
+    {
+        public int Id;
+        public string Nome;
+        public string Sobrenome;
+        public int Idade;
+
+        // Método construtor
+        public Pessoa (int id, string nome, string sobrenome, int idade)
+        {
+            Id = id;
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Idade = idade;
+        }
+
+        public string MostraPessoa()
+        {
+            return "Id: " + Id + "\n"
+                    + "Nome: " + Nome + "\n"
+                    + "Sobrenome: " + Sobrenome + "\n"
+                    + "Idade: " + Idade;
+        }
     }
 }
 
